@@ -13,6 +13,7 @@ main = java $ do
           io $ putStrLn $ "Load file " ++ file
           conf <- newSparkConf
           conf <.> setAppName "Simple Application"
+          conf <.> setMaster "local[4]"
           sc <- newSparkContext conf
           logData <- sc <.> textFile file >- cache
           numAs <- logData <.> S.filter (\(s :: String) -> 'a' `elem` s) >- count

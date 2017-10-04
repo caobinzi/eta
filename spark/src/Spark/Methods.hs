@@ -13,6 +13,11 @@ foreign import java unsafe "@new" newSparkConf :: Java c SparkConf
 foreign import java unsafe "setAppName"
   setAppName :: String -> Java SparkConf SparkConf
 
+foreign import java unsafe "setMaster"
+  setMaster :: String -> Java SparkConf SparkConf
+
+
+
 foreign import java unsafe "@new"
   newSparkContext :: SparkConf -> Java a JavaSparkContext
 foreign import java unsafe "textFile" textFile :: String -> Spark (JavaRDD JString)
