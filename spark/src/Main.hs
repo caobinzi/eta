@@ -14,6 +14,7 @@ main = java $ do
           conf <- newSparkConf
           conf <.> setAppName "Simple Application"
           conf <.> setMaster "local[4]"
+          conf <.> set "spark.driver.memory" "2g"
           sc <- newSparkContext conf
           logData <- sc <.> textFile file >- cache
           numAs <- logData <.> S.filter (\(s :: String) -> 'a' `elem` s) >- count

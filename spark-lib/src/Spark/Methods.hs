@@ -17,6 +17,9 @@ foreign import java unsafe "setMaster"
   setMaster :: String -> Java SparkConf SparkConf
 
 
+foreign import java unsafe set :: String -> String -> Java SparkConf SparkConf
+
+
 
 foreign import java unsafe "@new"
   newSparkContext :: SparkConf -> Java a JavaSparkContext
