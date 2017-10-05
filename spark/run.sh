@@ -1,1 +1,1 @@
-etlas run -- Setup.hs
+etlas run -- sample.txt
