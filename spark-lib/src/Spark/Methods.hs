@@ -9,6 +9,7 @@ import Java hiding (JavaConverter)
 type Spark a = Java JavaSparkContext a
 type RDD a b = Java (JavaRDD a) b
 
+--Spark Conf
 foreign import java unsafe "@new" newSparkConf :: Java c SparkConf
 foreign import java unsafe "setAppName"
   setAppName :: String -> Java SparkConf SparkConf
@@ -16,13 +17,27 @@ foreign import java unsafe "setAppName"
 foreign import java unsafe "setMaster"
   setMaster :: String -> Java SparkConf SparkConf
 
+foreign import java unsafe "set" 
+  set :: String -> String -> Java SparkConf SparkConf
 
-foreign import java unsafe set :: String -> String -> Java SparkConf SparkConf
-
-
-
+--Spark Context
 foreign import java unsafe "@new"
   newSparkContext :: SparkConf -> Java a JavaSparkContext
+
+
+--Spark Context
+foreign import java unsafe "@new"
+  newDuration ::  Int64 -> Java a Duration
+
+
+--Spark Context
+foreign import java unsafe "@new"
+  newStreamingContext :: JavaSparkContext -> Duration -> Java a JavaStreamingContext
+
+foreign import java unsafe "start" startStreaming ::  Java JavaStreamingContext ()
+foreign import java unsafe awaitTermination  ::  Java JavaStreamingContext ()
+
+--RDD
 foreign import java unsafe "textFile" textFile :: String -> Spark (JavaRDD JString)
 foreign import java unsafe stop :: Spark ()
 foreign import java unsafe cache :: (Extends t Object) => RDD t (JavaRDD t)

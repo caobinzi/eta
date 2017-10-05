@@ -11,6 +11,14 @@ data {-# CLASS "org.apache.spark.api.java.JavaSparkContext" #-} JavaSparkContext
   JavaSparkContext (Object# JavaSparkContext)
   deriving Class
 
+data {-# CLASS "org.apache.spark.streaming.api.java.JavaStreamingContext" #-} JavaStreamingContext =
+  JavaStreamingContext (Object# JavaStreamingContext)
+  deriving Class
+
+data {-# CLASS "org.apache.spark.streaming.Duration" #-} Duration =
+  Duration (Object# Duration)
+  deriving Class
+
 data {-# CLASS "org.apache.spark.api.java.JavaRDD" #-} JavaRDD a =
   JavaRDD (Object# (JavaRDD a))
   deriving Class
