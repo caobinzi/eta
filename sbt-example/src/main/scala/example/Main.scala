@@ -5,6 +5,7 @@ import java.io.PrintWriter
 import scala.io.Source
 
 import eta.example.Transform
+import eta.example.MyIO
 
 object Main extends App {
   val writer = new PrintWriter(new File("output.json"))
@@ -14,4 +15,5 @@ object Main extends App {
     println(s"Length = ${Transform.fixlength(json)}")
   }
   writer.close()
+  MyIO.test()
 }
