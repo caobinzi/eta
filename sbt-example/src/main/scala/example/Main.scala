@@ -10,8 +10,7 @@ object Main extends App {
   val writer = new PrintWriter(new File("output.json"))
 
   Source.fromFile("data.json").getLines.foreach { json =>
-  println(Transform.fixJson(json) ++ "\n")
-  //println(json)
-}
-writer.close()
+    println(Transform.fixJson(json) ++ "\n")
+  }
+  writer.close()
 }
