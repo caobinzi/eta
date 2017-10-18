@@ -11,6 +11,7 @@ object Main extends App {
 
   Source.fromFile("data.json").getLines.foreach { json =>
     println(Transform.fixJson(json) ++ "\n")
+    println(s"Length = ${Transform.fixlength(json)}")
   }
   writer.close()
 }

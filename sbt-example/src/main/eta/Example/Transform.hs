@@ -15,5 +15,11 @@ fixJson = toJava . transform . fromJava
                           & (key "last_name"  . _String) %~ T.toUpper
                           & (key "events" . key "clicks" . _Integral) %~ (+ 50)
 
+fixlength :: JString -> Int
+fixlength =  T.length . fromJava
+                          
 foreign export java "@static eta.example.Transform.fixJson"
   fixJson :: JString -> JString
+
+foreign export java "@static eta.example.Transform.fixlength"
+  fixlength :: JString -> Int
